@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./pages";
+import Contact from "./pages/contact";
+import Cart from "./pages/cart";
 import logo from './logo.svg';
 import './App.css';
 
