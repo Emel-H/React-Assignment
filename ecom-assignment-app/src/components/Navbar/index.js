@@ -15,7 +15,7 @@ function NavBar() {
             <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <a href="/cart"><img src={cart}/></a>
+        <Nav.Link href="/checkout"><img src={cart}/></Nav.Link>
       </Container>
     </Navbar>
   );

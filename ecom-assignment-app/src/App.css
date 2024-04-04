@@ -8,9 +8,15 @@
 }
 
 .App main h1{
-  margin:5%;
+  margin-top:5%;
   text-align: center;
 }
+
+.App main h2{
+  margin-bottom:5%;
+  text-align: center;
+}
+
 
 .App header a img{
   width: 50px;

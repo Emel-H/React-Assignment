@@ -4,7 +4,9 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./pages";
 import Contact from "./pages/contact";
-import Cart from "./pages/cart";
+import Cart from "./pages/checkout";
+import Product from "./pages/product";
+import Checkedout from "./pages/checkoutsuccess";
 import './App.css';
 
 function Layout() {
@@ -23,8 +25,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route exact path="/" element={<Home />} />
+            <Route path="/product/:id" element={<Product />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Cart />} />
+            <Route path="/checkoutsuccess" element={<Checkedout />} />
           </Route>
         </Routes>
 
