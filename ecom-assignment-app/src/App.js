@@ -1,8 +1,8 @@
 import React from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Home from "./pages";
+import Home from "./pages/index";
 import Contact from "./pages/contact";
 import Cart from "./pages/checkout";
 import Product from "./pages/product";
@@ -20,9 +20,12 @@ function Layout() {
 }
 
 function App() {
+
+  
   return (
-    <div className="App">
-        <Routes>
+    <BrowserRouter>
+      <div className="App">
+        <Routes userRole={"Admin"}>
           <Route path="/" element={<Layout />}>
             <Route exact path="/" element={<Home />} />
             <Route path="/product/:id" element={<Product />} />
@@ -32,11 +35,11 @@ function App() {
           </Route>
         </Routes>
 
-      <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
-      <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossorigin></script>
-      <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
-    </div>
-    
+        <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" ></script>
+      </div>
+    </BrowserRouter>
   );
 }
 

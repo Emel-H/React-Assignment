@@ -1,19 +1,106 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';;
+import { Link, useParams } from 'react-router-dom';
+import { Container, Row, Col, Spinner } from 'react-bootstrap';
+import { cartStore } from "../util/CartStore";
+
+ 
+const producturl = "https://v2.api.noroff.dev/online-shop/";
+
+function GetProduct(id, addOne){
+    let [product, setProduct] = useState([]);
+    // State for holding our loading state
+    const [isLoading, setIsLoading] = useState(true);
+    // State for holding our error state
+    const [isError, setIsError] = useState(false);
+
+    // The useEffect will run once when the component first mounts
+    useEffect(() => {
+        async function getData() {
+            try {
+                // Reset the error state in case there as an error previously
+                setIsError(false);
+                // Turn on the loading state each time we do an API call
+                setIsLoading(true);
+                const response = await fetch(producturl+id);
+                const json = await response.json();
+                // Setting our `product` state to the API data we received
+                setProduct(json.data);
+                // Clear the loading state once we've successfully got our data
+                setIsLoading(false);
+            } catch (error) {
+                // Clear the loading state if we get an error and then
+                // set our error state to true
+                setIsLoading(false);
+                setIsError(true);
+            } 
+        }
+        getData();
+    }, [id]);
+
+    if (isLoading) {
+        return <Spinner animation="border" role="status"></Spinner>;
+    }
+    else if (isError){
+        return <h2>Error loading data</h2>;
+    }
+    else{
+        let reviews = (
+            <Row className="justify-content-md-center mt-2 mx-5 border">
+                <p>No reviews available</p>
+            </Row>
+            );
+        if(product.reviews.length>1){
+            reviews = product.reviews.map((review) => ( 
+                    <Row key={review.id} className="justify-content-md-center mt-2 mx-5 border">
+                        <Col md={4}>
+                            <Row><h3>{review.username}</h3></Row>
+                            <Row><h4>Rating: {review.rating}</h4></Row>
+                        </Col>
+                        <Col md={5}>
+                            <Row>
+                                <h4>Description:</h4>
+                                <p>{review.description}</p>
+                            </Row>
+                        </Col>
+                    </Row>
+             ));
+        }
+        return (
+            <Container> 
+                <Row className="mx-5 border">
+                    <Col md={4}>
+                        <img src={product.image.url} alt={product.image.alt} width="100%" ></img>
+                    </Col>
+                    <Col md={5}>
+                        <Row><h1>{product.title}</h1></Row>
+                        <Row> <p>{product.description} </p></Row>
+                        <Row> <h2>Rating: {product.rating}</h2></Row>
+                        <Row> <h2>Price: {product.price===product.discountedPrice ? product.discountedPrice+"$" : product.discountedPrice+"$ discounted:"+ (Math.round((product.discountedPrice-product.price))) +"$ "}</h2> </Row>
+                        <Row><Link className="btn btn-info" onClick={function(){addOne(product.title, product.discountedPrice)}} to="/">Add to Cart</Link></Row>
+                    </Col>
+                </Row>
+                <Row className="justify-content-md-center mt-5">
+                    <h2>User Reviews</h2>
+                </Row>
+                {reviews}
+                
+            </Container>
+        );
+    }
+}
+
  
 function Product(){
     let params = useParams()
-    console.log(params)
+    const addOne = cartStore((state) => state.addOne);
+    const product = GetProduct(params.id, addOne);
+
 
     return (
         <main>
             <Container>
-                <h1>Welcome to product</h1>
-                <Row>
-                    <Col>Individual product page: {params.id}</Col>
+                <Row className="justify-content-md-center">
+                    {product}
                 </Row>
             </Container>
             

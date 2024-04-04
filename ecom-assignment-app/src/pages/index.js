@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import {Form, Card, Container, Row, Col, Spinner } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import {Form, Card, Container, Row, Spinner } from 'react-bootstrap';
  
 const url = 'https://v2.api.noroff.dev/online-shop';
 
 function GetProducts(search){
     let [products, setProducts] = useState([]);
     // State for holding our loading state
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     // State for holding our error state
     const [isError, setIsError] = useState(false);
 
@@ -46,7 +46,7 @@ function GetProducts(search){
         if(products.length >1){
             const pop = (products.filter((product) => product.title.toLowerCase().includes(search.toLowerCase())||product.description.toLowerCase().includes(search.toLowerCase())));
             return pop.map((product) => ( 
-                <Card className="m-3" style={{ width: '18rem' }}>
+                <Card key={product.id} className="m-3" style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={product.image.url} />
                     <Card.Body>
                         <Card.Title>{product.title}</Card.Title>
@@ -58,7 +58,7 @@ function GetProducts(search){
          ));
         }
         else{
-            return <h2> no match </h2>;
+            return <h2> No match to your search, try something else </h2>;
         }
         
     }

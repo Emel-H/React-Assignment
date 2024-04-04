@@ -1,15 +1,16 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';;
+
  
 const Checkedout = () => {
     return (
         <main>
             <Container>
-                <h1>Welcome to cart</h1>
-                <Row>
-                    <Col>1 of 1</Col>
+                <h1>Your Purchase was successful</h1>
+                <Row className="justify-content-md-center mt-5 mx-5">
+                    <Link className="btn btn-info mt-5" to="/">Back to Store</Link>
                 </Row>
             </Container>
             
