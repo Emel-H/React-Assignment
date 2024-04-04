@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import { Link, useParams } from "react-router-dom";
+import {Form, Card, Container, Row, Col, Spinner } from 'react-bootstrap';
  
 const url = 'https://v2.api.noroff.dev/online-shop';
 
@@ -39,7 +36,7 @@ function GetProducts(search){
     }, []);
 
     if (isLoading) {
-        return <h2>Loading posts</h2>;
+        return <Spinner animation="border" role="status"></Spinner>;
     }
     else if (isError){
         return <h2>Error loading data</h2>;
@@ -55,7 +52,7 @@ function GetProducts(search){
                         <Card.Title>{product.title}</Card.Title>
                         <Card.Text> {product.description} </Card.Text>
                         <Card.Text> {product.price===product.discountedPrice ? product.discountedPrice+"$" : product.discountedPrice+"$ discounted:"+ (Math.round((product.discountedPrice-product.price))) +"$ "} </Card.Text>
-                        <Button variant="primary">View</Button>
+                        <Link className="btn btn-info" to={`/product/${product.id}`}>View</Link>
                     </Card.Body>
                 </Card>
          ));
@@ -68,19 +65,15 @@ function GetProducts(search){
     
 }
 
-
-
 function Home() {
 
     const [searchValue, setSearchValue] = useState("");
     
-
-    const products = GetProducts(searchValue); 
-    let prods = products;
-    
     function onSearchChange(event) {
         setSearchValue(event.target.value);
-      }
+    }
+
+    const products = GetProducts(searchValue); 
 
     return (
         <main>
@@ -90,8 +83,8 @@ function Home() {
                 <Row>
                     <Form.Control value={searchValue} className="m-5" size="lg" type="text" placeholder="Search" onChange={onSearchChange} />
                 </Row>
-                <Row>
-                    {prods}
+                <Row className="justify-content-md-center">
+                    {products}
                 </Row>
             </Container>
         </main>
