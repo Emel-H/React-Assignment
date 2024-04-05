@@ -29,12 +29,13 @@
 }
 
 .App form {
+  background-color: white;
   width: 60%;
   margin: auto;
   padding:10px;
   border-style: solid;
   border-radius: 15px;
-  border-color: rgb(142, 214, 190);
+  border-color: lightgray;
 }
 
 .App form label{

@@ -24,7 +24,7 @@ function App() {
   
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App bg-light">
         <Routes userRole={"Admin"}>
           <Route path="/" element={<Layout />}>
             <Route exact path="/" element={<Home />} />

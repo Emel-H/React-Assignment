@@ -77,7 +77,7 @@ function Home() {
 
     return (
         <main>
-            <h1>eCOM:</h1>
+            <h1 className="text-info"> eCOM</h1>
             <h2>Your primary destination for great deals</h2>
             <Container>
                 <Row>
