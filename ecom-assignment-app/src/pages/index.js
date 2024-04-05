@@ -83,7 +83,7 @@ function Home() {
                 <Row>
                     <Form.Control value={searchValue} className="m-5" size="lg" type="text" placeholder="Search" onChange={onSearchChange} />
                 </Row>
-                <Row className="justify-content-md-center">
+                <Row className="justify-content-center">
                     {products}
                 </Row>
             </Container>

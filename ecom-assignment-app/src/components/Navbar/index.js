@@ -13,11 +13,11 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link className="mr-3" to="/">Home</Link>
-            <Link className="mr-3" to="/contact">Contact</Link>
+            <Link className="mr-3 text-info" to="/">Home</Link>
+            <Link className="mr-3 text-info" to="/contact">Contact</Link>
           </Nav>
         </Navbar.Collapse>
-        <Link to="/checkout"><img src={cart} alt="shopping cart icon"/>{count}</Link>
+        <Link className="text-info" to="/checkout"><img src={cart} alt="shopping cart icon"/>{count}</Link>
       </Container>
     </Navbar>
   );

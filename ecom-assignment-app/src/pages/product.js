@@ -45,13 +45,13 @@ function GetProduct(id, addOne){
     }
     else{
         let reviews = (
-            <Row className="justify-content-md-center mt-2 mx-5 border">
+            <Row className="justify-content-center mt-2 mx-5 border">
                 <p>No reviews available</p>
             </Row>
             );
         if(product.reviews.length>1){
             reviews = product.reviews.map((review) => ( 
-                    <Row key={review.id} className="justify-content-md-center mt-2 mx-5 border">
+                    <Row key={review.id} className="justify-content-center mt-2 mx-5 border">
                         <Col md={4}>
                             <Row><h3>{review.username}</h3></Row>
                             <Row><h4>Rating: {review.rating}</h4></Row>
@@ -69,17 +69,17 @@ function GetProduct(id, addOne){
             <Container> 
                 <Row className="mx-5 border">
                     <Col md={4}>
-                        <img src={product.image.url} alt={product.image.alt} width="100%" ></img>
+                        <img src={product.image.url} alt={product.image.alt} width="100%"></img>
                     </Col>
                     <Col md={5}>
-                        <Row><h1>{product.title}</h1></Row>
-                        <Row> <p>{product.description} </p></Row>
-                        <Row> <h2>Rating: {product.rating}</h2></Row>
-                        <Row> <h2>Price: {product.price===product.discountedPrice ? product.discountedPrice+"$" : product.discountedPrice+"$ discounted:"+ (Math.round((product.discountedPrice-product.price))) +"$ "}</h2> </Row>
-                        <Row><Link className="btn btn-info" onClick={function(){addOne(product.title, product.discountedPrice)}} to="/">Add to Cart</Link></Row>
+                        <Row className="ml-1"><h2>{product.title}</h2></Row>
+                        <Row className="ml-1"> <p>{product.description} </p></Row>
+                        <Row className="mb-5 ml-1"> <h3>Rating: {product.rating}</h3></Row>
+                        <Row className="ml-1"> <h4>Price: {product.price===product.discountedPrice ? product.discountedPrice+"$" : product.discountedPrice+"$ discounted:"+ (Math.round((product.discountedPrice-product.price))) +"$ "}</h4> </Row>
+                        <Row className="ml-1"><Link className="btn btn-info mb-5" onClick={function(){addOne(product.title, product.discountedPrice)}} to="/">Add to Cart</Link></Row>
                     </Col>
                 </Row>
-                <Row className="justify-content-md-center mt-5">
+                <Row className="justify-content-center mt-5">
                     <h2>User Reviews</h2>
                 </Row>
                 {reviews}
@@ -99,7 +99,7 @@ function Product(){
     return (
         <main>
             <Container>
-                <Row className="justify-content-md-center">
+                <Row className="justify-content-center">
                     {product}
                 </Row>
             </Container>

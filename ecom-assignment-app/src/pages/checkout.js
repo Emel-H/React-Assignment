@@ -25,7 +25,7 @@ function getCheckout(count, items, prices, total){
     if(count>0){
         let checkout = [];
         checkout.push(
-            <Row className="justify-content-md-center border">
+            <Row key={1} className="justify-content-center border">
                 <Col md={4}>
                     <h3>Items</h3>
                 </Col>
@@ -36,7 +36,7 @@ function getCheckout(count, items, prices, total){
         );
         for(let i=0; i<count; i++){
             checkout.push(
-                <Row className="justify-content-md-center border">
+                <Row key={i+2} className="justify-content-center border">
                     <Col md={4}>
                         <p>{items[i].item}</p>
                     </Col>
@@ -47,7 +47,7 @@ function getCheckout(count, items, prices, total){
             );
         }
         checkout.push(
-            <Row className="justify-content-md-center border">
+            <Row key={110} className="justify-content-center border">
                 <Col md={4}>
                     <h3>Total</h3>
                 </Col>
@@ -60,7 +60,7 @@ function getCheckout(count, items, prices, total){
     }
     else{
         return (
-            <Row className="justify-content-md-center mt-5 mx-5">
+            <Row className="justify-content-center mt-5 mx-5">
                 <h3>No Items in your cart, please view our lovely items in the shop</h3>
             </Row>
         );
@@ -81,7 +81,7 @@ function Cart() {
         <main>
             <Container>
                 <h1>Checkout</h1>
-                <Row className="justify-content-md-center mt-5 mx-5">
+                <Row key={0} className="justify-content-center mt-5 mx-5">
                     <Container>{checkout}</Container>
                     <Link className="btn btn-info mt-5" onClick={function(){clear()}} to="/checkoutsuccess">Check Out</Link>
                 </Row>
