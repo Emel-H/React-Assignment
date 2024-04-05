@@ -25,34 +25,35 @@ function getCheckout(count, items, prices, total){
     if(count>0){
         let checkout = [];
         checkout.push(
-            <Row key={1} className="justify-content-center border">
-                <Col md={4}>
-                    <h3>Items</h3>
+            <Row key={1} className=" border bg-dark text-light">
+                <Col>
+                    <p>Items</p>
                 </Col>
-                <Col md={4}>
-                    <h3>Prices</h3>
+                <Col className="col-auto">
+                    <p>Prices</p>
                 </Col>
             </Row>
         );
         for(let i=0; i<count; i++){
             checkout.push(
-                <Row key={i+2} className="justify-content-center border">
-                    <Col md={4}>
+                <Row key={i+2} className=" border-left border-right bg-white">
+                    <Col>
                         <p>{items[i].item}</p>
                     </Col>
-                    <Col md={4} >
+                    <Col className="col-auto">
                         <p>{prices[i].price}$</p>
                     </Col>
                 </Row>
             );
         }
         checkout.push(
-            <Row key={110} className="justify-content-center border">
-                <Col md={4}>
-                    <h3>Total</h3>
+            <Row key={110} className=" border bg-white font-bold">
+                
+                <Col>
+                    <p>Total</p>
                 </Col>
-                <Col md={4}>
-                    <h3>{total}$</h3>
+                <Col className="col-auto">
+                    <p>{total}$</p>
                 </Col>
             </Row>
         );

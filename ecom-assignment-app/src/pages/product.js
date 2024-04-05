@@ -45,13 +45,13 @@ function GetProduct(id, addOne){
     }
     else{
         let reviews = (
-            <Row className="justify-content-center mt-2 mx-5 border">
+            <Row className="justify-content-center mt-2 mx-5 border bg-white">
                 <p>No reviews available</p>
             </Row>
             );
         if(product.reviews.length>1){
             reviews = product.reviews.map((review) => ( 
-                    <Row key={review.id} className="justify-content-center mt-2 mx-5 border">
+                    <Row key={review.id} className="justify-content-center mt-2 mx-5 border bg-white">
                         <Col md={4}>
                             <Row><h3>{review.username}</h3></Row>
                             <Row><h4>Rating: {review.rating}</h4></Row>
@@ -66,8 +66,8 @@ function GetProduct(id, addOne){
              ));
         }
         return (
-            <Container> 
-                <Row className="mx-5 border">
+            <Container className=""> 
+                <Row className="mx-5 border bg-white">
                     <Col md={4}>
                         <img src={product.image.url} alt={product.image.alt} width="100%"></img>
                     </Col>
