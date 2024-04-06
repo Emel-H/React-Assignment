@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Container, Row, Col, Button} from 'react-bootstrap'; 
 import { cartStore } from "../util/CartStore";
 
 function getTotal(count, prices){
@@ -68,6 +66,8 @@ function getCheckout(count, items, prices, total){
     }
 }
 
+
+
 function Cart() {
     
     const count = cartStore((state) => state.count);
@@ -78,13 +78,24 @@ function Cart() {
     const total = getTotal(count, prices);
     const checkout = getCheckout(count, items, prices, total);
 
+    function getCheckoutButton(count){
+        if(count>0){
+            return (<Link className="btn btn-info mt-5" onClick={function(){clear()}} to="/checkoutsuccess">Check Out</Link>)
+        }
+        else{
+            return <Button className="btn btn-secondary mt-5" disabled>Check Out</Button>
+        }
+    }
+
+    const checkoutButton = getCheckoutButton(count);
+
     return (
         <main>
             <Container>
                 <h1>Checkout</h1>
                 <Row key={0} className="justify-content-center mt-5 mx-5">
                     <Container>{checkout}</Container>
-                    <Link className="btn btn-info mt-5" onClick={function(){clear()}} to="/checkoutsuccess">Check Out</Link>
+                    {checkoutButton}
                 </Row>
                 
             </Container>
