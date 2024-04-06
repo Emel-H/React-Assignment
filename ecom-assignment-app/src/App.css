@@ -8,7 +8,7 @@
 
 .App main{
   margin:0% 5% 5% 5%;
-  padding-bottom: 130px;
+  
 }
 
 .App main h1{
@@ -27,9 +27,9 @@
 }
 
 .App footer {
-  margin-top: 10%;
+  
   text-align: center;
-  position: fixed;
+  position: relative;
   width: 100%;
   bottom:0;
 }
