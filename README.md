@@ -1,4 +1,4 @@
-# Your project title
+# JavaScript framework assigment
 
 ![image](https://github.com/Emel-H/React-Assignment/assets/114482435/5c73bc36-f8b0-4f15-b8d9-7ebe931be5a1)
 
@@ -6,7 +6,7 @@ This is an assignment that focuses on the ecomers website where the main learnin
 
 ## Description
 
-In this assignment, I used thy Noroff API to retrieve project and product information(REST API). The website has the following pages for an eCom store:
+In this assignment, I used the Noroff API to retrieve project and product information(REST API). The website has the following pages for an eCom store:
 
 - Homepage
 - Individual product page
@@ -74,6 +74,6 @@ For anyone who wants to contrubiot, submit a pull request with your suggested ch
 
 ## Contact
 
-I can be contacted at my Linkedin profile.
+I can be contacted at my LinkedIn profile.
 
 [My LinkedIn page](https://www.linkedin.com/in/emel-j-h-415905169/)
