@@ -1,4 +1,4 @@
-# JavaScript framework assigment
+# JavaScript framework assignment
 
 ![image](https://github.com/Emel-H/React-Assignment/assets/114482435/5c73bc36-f8b0-4f15-b8d9-7ebe931be5a1)
 
@@ -70,7 +70,7 @@ npm start
 
 ## Contributing
 
-For anyone who wants to contrubiot, submit a pull request with your suggested changes and I will review and approv the submission. 
+For anyone who wants to contribute, submit a pull request with your suggested changes and I will review and approve the submission. 
 
 ## Contact
 
