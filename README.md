@@ -57,7 +57,7 @@ git clone git@github.com/Emel-H/React-Assignment.git
 2. Install the dependencies:
 
 ```
-npm run build
+npm install
 ```
 
 ### Running
